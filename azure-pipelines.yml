@@ -1,6 +1,6 @@
 # ASP.NET Core
-task: DotNetCoreCLI@2
-inputs:
+-task: DotNetCoreCLI@2
+-inputs:
   command: 'pack'
   packagesToPack: '**/*.csproj'
   versioningScheme: 'off'
@@ -8,7 +8,7 @@ inputs:
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
--trigger:
+- trigger:
 - master
 
 pool:
