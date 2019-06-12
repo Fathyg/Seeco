@@ -1,0 +1,68 @@
+﻿@model Seeco.Models.TblLetters
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutProject.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Letters</h4>
+<hr />
+<div class="row" style="text-align:center;">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProjectId" class="control-label"></label>
+                <select asp-for="ProjectId" class="form-control" asp-items="ViewBag.ProjectId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateReceived" class="control-label"></label>
+                <input asp-for="DateReceived" class="form-control" />
+                <span asp-validation-for="DateReceived" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IssuedBy" class="control-label"></label>
+                <input asp-for="IssuedBy" class="form-control" />
+                <span asp-validation-for="IssuedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DirectedTo" class="control-label"></label>
+                <input asp-for="DirectedTo" class="form-control" />
+                <span asp-validation-for="DirectedTo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label"></label>
+                <input asp-for="Subject" class="form-control" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Descriptiopn" class="control-label"></label>
+                <input asp-for="Descriptiopn" class="form-control" />
+                <span asp-validation-for="Descriptiopn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Upload File: <input type="file" name="file" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-route-pid="@ViewBag.pid">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

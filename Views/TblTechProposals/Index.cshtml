@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Seeco.Models.TblTechProposals>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutProject.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" asp-route-pid="@ViewBag.pid">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Provider)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Decesions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConsultantTeam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContractorTeam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubItem)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.Provider)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Decesions)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ConsultantTeam.ResponsibleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContractorTeam.ResponsibleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubItem.SubItemName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts{ }

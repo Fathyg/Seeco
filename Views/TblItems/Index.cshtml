@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Seeco.Models.TblItems>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutProject.cshtml";
+}
+
+<datalist id="actitName">
+    @foreach (var item in ViewBag.itName)
+    {
+        <option value="@item"></option>
+    }
+</datalist>
+
+<datalist id="actitNo">
+    @foreach (var item in ViewBag.itNo)
+    {
+        <option value="@item"></option>
+    }
+</datalist>
+
+<datalist id="actType">
+    <option>Architecture</option>
+    <option>Civil</option>
+    <option>Mechanical</option>
+    <option>Electrical</option>
+</datalist>
+
+
+<form asp-action="Search" asp-controller="TblItems"style="text-align:center" asp-route-pid="@ViewBag.pid">
+            
+                Item Name: <input type="text" name="itName" list="actitName" class="col-md-4" autocomplete="on"/>
+                Item Number: <input type="text" name="itNo" list="actitNo" autocomplete="on"/>
+                Type: <input type="text" name="itType" list="actType" autocomplete="on"/>
+            
+       
+                 <button type="submit">Search</button>
+      
+    
+</form>
+
+
+<p>
+    <a asp-action="Create" asp-route-pid="@ViewBag.pid">Create New</a>
+</p>
+<div id="tb">
+    <table class="table table-bordered table-striped table-responsive-md">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts{ 
+    
+}

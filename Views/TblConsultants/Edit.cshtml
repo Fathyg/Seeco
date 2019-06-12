@@ -1,0 +1,75 @@
+﻿@model Seeco.Models.TblConsultants
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Consultants</h4>
+<hr />
+<div class="row" style="text-align:center;">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phones" class="control-label"></label>
+                <input asp-for="Phones" class="form-control" />
+                <span asp-validation-for="Phones" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Faxes" class="control-label"></label>
+                <input asp-for="Faxes" class="form-control" />
+                <span asp-validation-for="Faxes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ceo" class="control-label"></label>
+                <input asp-for="Ceo" class="form-control" />
+                <span asp-validation-for="Ceo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cofounder" class="control-label"></label>
+                <input asp-for="Cofounder" class="form-control" />
+                <span asp-validation-for="Cofounder" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WebSite" class="control-label"></label>
+                <input asp-for="WebSite" class="form-control" />
+                <span asp-validation-for="WebSite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,61 @@
+﻿@model Seeco.Models.TblRequests
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutProject.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Requests</h4>
+<hr />
+<div class="row" style="text-align:center;">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SubItemId" class="control-label"></label>
+                <select asp-for="SubItemId" class="form-control" asp-items="ViewBag.SubItemId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label"></label>
+                <input asp-for="Subject" class="form-control" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContractorTeamId" class="control-label"></label>
+                <select asp-for="ContractorTeamId" class="form-control" asp-items="ViewBag.ContractorTeamId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConsultantTeamId" class="control-label"></label>
+                <select asp-for="ConsultantTeamId" class="form-control" asp-items="ViewBag.ConsultantTeamId"></select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Decisions" class="control-label"></label>
+                <input asp-for="Decisions" class="form-control" />
+                <span asp-validation-for="Decisions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Upload: <input type="file" name="file" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-route-pid="@ViewBag.pid">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

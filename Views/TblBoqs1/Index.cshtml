@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Seeco.Models.TblBoq>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutProject.cshtml";
+}
+
+<datalist id="actitName">
+    @foreach (var item in ViewBag.itName)
+    {
+        <option value="@item"></option>
+    }
+</datalist>
+
+<datalist id="actitNo">
+    @foreach (var item in ViewBag.itNo)
+    {
+        <option value="@item"></option>
+    }
+</datalist>
+
+<datalist id="actType">
+    <option>Architecture</option>
+    <option>Civil</option>
+    <option>Mechanical</option>
+    <option>Electrical</option>
+</datalist>
+
+
+<form asp-action="Search" asp-controller="TblBoqs1" style="text-align:center" asp-route-pid="@ViewBag.pid">
+
+    Item Name: <input type="text" name="itName" list="actitName" class="col-md-4" autocomplete="on" />
+    Item Number: <input type="text" name="itNo" list="actitNo" autocomplete="on" />
+    Type: <input type="text" name="itType" list="actType" autocomplete="on" />
+
+
+    <button type="submit">Search</button>
+
+
+</form>
+
+
+<p>
+    <a asp-action="Create" asp-route-pid="@ViewBag.pid">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Unit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Qty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Uprice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Item)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Unit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Qty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Uprice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Item.ItemName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts{ }

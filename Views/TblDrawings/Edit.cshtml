@@ -1,0 +1,76 @@
+﻿@model Seeco.Models.TblDrawings
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutProject.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Drawings</h4>
+<hr />
+<div class="row" style="text-align:center;">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="ItemId" class="control-label"></label>
+                <select asp-for="ItemId" class="form-control" asp-items="ViewBag.ItemId"></select>
+                <span asp-validation-for="ItemId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DrawingName" class="control-label"></label>
+                <input asp-for="DrawingName" class="form-control" />
+                <span asp-validation-for="DrawingName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DrawingType" class="control-label"></label>
+                <input asp-for="DrawingType" class="form-control" />
+                <span asp-validation-for="DrawingType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateIssued" class="control-label"></label>
+                <input asp-for="DateIssued" class="form-control" />
+                <span asp-validation-for="DateIssued" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateReceived" class="control-label"></label>
+                <input asp-for="DateReceived" class="form-control" />
+                <span asp-validation-for="DateReceived" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DrawBy" class="control-label"></label>
+                <input asp-for="DrawBy" class="form-control" />
+                <span asp-validation-for="DrawBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Receiver" class="control-label"></label>
+                <input asp-for="Receiver" class="form-control" />
+                <span asp-validation-for="Receiver" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FilePath" class="control-label"></label>
+                <input asp-for="FilePath" class="form-control" />
+                <span asp-validation-for="FilePath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-route-pid="@ViewBag.pid">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

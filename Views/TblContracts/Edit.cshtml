@@ -1,0 +1,75 @@
+﻿@model Seeco.Models.TblContracts
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Contracts</h4>
+<hr />
+<div class="row" style="text-align:center;">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="ClientId" class="control-label"></label>
+                <select asp-for="ClientId" class="form-control" asp-items="ViewBag.ClientId"></select>
+                <span asp-validation-for="ClientId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContractorId" class="control-label"></label>
+                <select asp-for="ContractorId" class="form-control" asp-items="ViewBag.ContractorId"></select>
+                <span asp-validation-for="ContractorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConsultantDesignId" class="control-label"></label>
+                <select asp-for="ConsultantDesignId" class="form-control" asp-items="ViewBag.ConsultantDesignId"></select>
+                <span asp-validation-for="ConsultantDesignId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConsultantSupervisionId" class="control-label"></label>
+                <select asp-for="ConsultantSupervisionId" class="form-control" asp-items="ViewBag.ConsultantSupervisionId"></select>
+                <span asp-validation-for="ConsultantSupervisionId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConsultantContractorId" class="control-label"></label>
+                <select asp-for="ConsultantContractorId" class="form-control" asp-items="ViewBag.ConsultantContractorId"></select>
+                <span asp-validation-for="ConsultantContractorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BaseValue" class="control-label"></label>
+                <input asp-for="BaseValue" class="form-control" />
+                <span asp-validation-for="BaseValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Period" class="control-label"></label>
+                <input asp-for="Period" class="form-control" />
+                <span asp-validation-for="Period" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

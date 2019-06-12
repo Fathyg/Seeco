@@ -1,0 +1,44 @@
+﻿@model Seeco.Models.TblDrawingDet
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutProject.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>@ViewBag.dr</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DecisionMaker)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DecisionMaker)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Decisions)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Decisions)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Drawing)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Drawing.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index" asp-route-did="@ViewBag.did">Back to List</a>
+</div>
+@section Scripts{ }

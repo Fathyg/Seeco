@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Seeco.Models.TblDrawings>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutProject.cshtml";
+}
+
+<datalist id="actsubject">
+    @foreach (var item in ViewBag.DName)
+    {
+        <option value="@item"></option>
+    }
+</datalist>
+
+<form asp-action="Search" asp-controller="TblDrawings" style="text-align:center" asp-route-pid="@ViewBag.pid">
+
+    Subject: <input type="text" name="DName" list="actsubject" class="col-md-4" autocomplete="on" />
+    From Date: <input type="date" name="d1" />
+    To Date: <input type="date" name="d2" />
+    <button type="submit">Search</button>
+</form>
+
+
+<p>
+    <a asp-action="Create" asp-route-pid="@ViewBag.pid">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DrawingName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DrawingType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateIssued)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateReceived)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DrawBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Receiver)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Item)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DrawingName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DrawingType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateIssued)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateReceived)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DrawBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Receiver)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Item.ItemName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Index" asp-controller="TblDrawingDets" asp-route-did="@item.Id">Details</a> |
+                    <a asp-action="Download" asp-route-filename="@item.FilePath">Download</a>|
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts{ }

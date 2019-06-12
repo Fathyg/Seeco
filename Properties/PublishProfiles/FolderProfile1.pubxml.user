@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\FATHY\source\repos\Seeco\Seeco\bin\Debug\netcoreapp2.2\publish\</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=%28localdb%29\mssqllocaldb%3bDatabase=aspnet-Seeco-ACE9778C-8667-4620-9541-D014B9A192F2%3bTrusted_Connection=True%3bMultipleActiveResultSets=true</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="Seeco.Data.ApplicationDbContext">
+      <Value>Data Source=%28localdb%29\MSSQLLocalDB%3bInitial Catalog=aspnet-Seeco-ACE9778C-8667-4620-9541-D014B9A192F2%3bIntegrated Security=True%3bConnect Timeout=30%3bEncrypt=False%3bTrustServerCertificate=False%3bApplicationIntent=ReadWrite%3bMultiSubnetFailover=False</Value>
+    </EFMigrations>
+    <EFMigrations Include="Seeco.Models.ProjectsDbContext">
+      <Value>Data Source=FATHY%3bInitial Catalog=ProjectsDb%3bIntegrated Security=True%3bConnect Timeout=30%3bEncrypt=False%3bTrustServerCertificate=False%3bApplicationIntent=ReadWrite%3bMultiSubnetFailover=False</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

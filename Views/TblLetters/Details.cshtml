@@ -1,0 +1,68 @@
+﻿@model Seeco.Models.TblLetters
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutProject.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>TblLetters</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DateReceived)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DateReceived)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IssuedBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IssuedBy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DirectedTo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DirectedTo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Subject)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FilePath)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FilePath)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Descriptiopn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Descriptiopn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Project)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Project.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index" asp-route-pid="@ViewBag.pid">Back to List</a>
+</div>
+@section Scripts{ }
