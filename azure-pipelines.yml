@@ -1,6 +1,7 @@
 # ASP.NET Core
--task: DotNetCoreCLI@2
--inputs:
+# object
+- task: DotNetCoreCLI@2
+- inputs:
   command: 'pack'
   packagesToPack: '**/*.csproj'
   versioningScheme: 'off'
@@ -11,13 +12,13 @@
 - trigger:
 - master
 
-pool:
+- pool:
   vmImage: 'ubuntu-latest'
 
-variables:
+- variables:
   buildConfiguration: 'Release'
 
-steps:
+- steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
   
