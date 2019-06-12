@@ -12,10 +12,11 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
-steps:
+- steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
-  steps:
+  
+  - steps:
 # ...
 # do this after you've built your app, near the end of your pipeline in most cases
 # for example, you do this before you deploy to an Azure web app on Windows
